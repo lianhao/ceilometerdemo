@@ -1,7 +1,7 @@
 ---
 sources:
     - name: demo
-      interval: 60
+      interval: 30
       resources:
           - demo://static_res1
           - demo://static_res2
@@ -10,9 +10,9 @@ sources:
       meters:
           - "demo.pollstermeter"
       sinks:
-          - file_sink
+          - demo_sink
 sinks:
-    - name: file_sink
+    - name: demo_sink
       transformers:
       publishers:
-          - file:///tmp/demo.pollstermeter
+          - demo.publisher:///tmp/demo.pollstermeter
