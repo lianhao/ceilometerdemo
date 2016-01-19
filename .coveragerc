@@ -1,0 +1,7 @@
+[run]
+branch = True
+source = ceilometerdemo
+omit = ceilometerdemo/openstack/*
+
+[report]
+ignore_errors = True
