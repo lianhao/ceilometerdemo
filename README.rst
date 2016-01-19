@@ -9,9 +9,9 @@ Please feel here a long description which must be at least 3 lines wrapped on
 Note that this is a hard requirement.
 
 * Free software: Apache license
-* Documentation: http://docs.openstack.org/developer/ceilometerdemo
-* Source: http://git.openstack.org/cgit/lianhao/ceilometerdemo
-* Bugs: http://bugs.launchpad.net/ceilometerdemo
+* Documentation:
+* Source: http://github.com/lianhao/ceilometerdemo
+* Bugs:
 
 Features
 --------
