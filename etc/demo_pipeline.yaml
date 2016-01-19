@@ -1,0 +1,18 @@
+---
+sources:
+    - name: demo
+      interval: 60
+      resources:
+          - demo://static_res1
+          - demo://static_res2
+      discovery:
+          - demo.discoverer
+      meters:
+          - "demo.pollstermeter"
+      sinks:
+          - file_sink
+sinks:
+    - name: file_sink
+      transformers:
+      publishers:
+          - file:///tmp/demo.pollstermeter
