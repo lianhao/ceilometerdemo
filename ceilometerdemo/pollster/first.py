@@ -1,12 +1,18 @@
+import random
+
 from ceilometer.agent import plugin_base
 from ceilometer import sample
 from oslo_log import log
 from oslo_utils import timeutils
 
+
 LOG = log.getLogger(__name__)
 
 
 class MyFirstPollster(plugin_base.PollsterBase):
+    def setup_environment(self):
+        random.seed(1)
+
     @property
     def default_discovery(self):
         return "demo.discoverer"
@@ -17,7 +23,7 @@ class MyFirstPollster(plugin_base.PollsterBase):
             yield sample.Sample(name='demo.pollstermeter',
                                 type=sample.TYPE_GAUGE,
                                 unit='B',
-                                volume=0.5,
+                                volume=round(random.uniform(0, 9), 3),
                                 user_id=None,
                                 project_id=None,
                                 resource_id=str(res),
@@ -28,4 +34,4 @@ class MyFirstPollster(plugin_base.PollsterBase):
 
 class MyFirstDiscoverer(plugin_base.DiscoveryBase):
     def discover(self, manager, param=None):
-        return ['demo://fake_resource']
+        return ['demo://dynamic_res']
